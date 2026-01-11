@@ -1,0 +1,53 @@
+{
+  "$schema" : "https://opencode.ai/config.json"
+  , "share" : "disabled"
+  , "provider" : {
+      "llama.cpp" : {
+        "npm" : "@ai-sdk/openai-compatible"
+        , "name" : "llama-server (local)"
+        , "options" : {
+          "baseURL" : "http://host.docker.internal:15000/v1"
+        }
+        , "models" : {
+          "any15000" : {
+            "name" : "any15000"
+            , "tool_call" : true
+            , "reasoning" : true
+            , "options" : {
+              "thinking" : {
+                "type" : "enabled"
+                , "budgetTokens" : 65536
+              }
+              , "temperature" : 1.0
+              , "top_p" : 1.0
+            }
+            , "limit" : {
+              "context" : 524288
+              , "output" : 262144
+           }
+         }
+      }
+    }
+  }
+  , "tools" : {
+    "bash" : true
+    , "read" : true
+    , "write" : true
+    , "edit" : true
+    , "webfetch" : true
+    , "lsp" : true
+    , "patch" : true
+  }
+  , "mcp" : {
+    "sequentialthinking" : {
+      "type" : "local"
+      , "command" : ["/usr/bin/npx", "-y", "@modelcontextprotocol/server-sequential-thinking"]
+      , "enabled" : true
+    }
+    , "mcp-datetime" : {
+      "type" : "local"
+      , "command" : [ "/usr/bin/uvx", "mcp-datetime" ]
+      , "enabled" : true
+    }
+  }
+}
