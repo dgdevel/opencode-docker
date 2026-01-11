@@ -4,7 +4,7 @@ A set of scripts to run opencode in a docker container.
 It will create a docker container, using `homedir/` as an isolated home directory for the docker user and your project path will be placed in `/home/coder/project` inside the container to work on.
 
 ## Requirements
-Tested on Linux, but should work on any unix that have docker, a shell and jshon.
+Tested on Linux, but should work on any unix that have `docker`, a shell and `jshon`.
 
 ## Usage
 
@@ -12,9 +12,8 @@ Tested on Linux, but should work on any unix that have docker, a shell and jshon
 2. Customize your developement dependencies in `Dockerfile` (see comment at head of file)
 3. Run with `./run.sh [path-of-project]`
 
-If you need a shell to run inside the container use `./shell.sh` to run.
+If you need a shell to run inside the running container use `./shell.sh`.
 
 ## Known bugs
 
 - Ctrl+p won't show the menu unless you press another key (like the arrow keys).
-
